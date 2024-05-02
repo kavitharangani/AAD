@@ -2,6 +2,7 @@
     position: relative;
     left: 293px;
     height: 100vw;
+    width: 1224px;
     /*margin-left: 43px;*/
     /*margin-right: 100px;*/
     /* background: lightgreen;*/
@@ -241,4 +242,10 @@
     height: 100vw;
     margin: 0;
     padding: 0;
+}
+.supplier_table{
+    position: absolute;
+    top: 678px;
+    width: 1100px;
+    left: 60px;
 }

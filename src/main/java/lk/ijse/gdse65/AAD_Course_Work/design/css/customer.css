@@ -1,11 +1,11 @@
-
 .customer {
+    width: 1226px;
     position: relative;
     left: 293px;
     height: 100vw;
-    /*margin-left: 43px;*/
-    /*margin-right: 100px;*/
-    /* background: lightgreen;*/
+    /* margin-left: 43px; */
+    /* margin-right: 100px; */
+    /* background: lightgreen; */
     background: linear-gradient(to bottom, #7874ea 0%, #dde3f1 100%);
 }
 
@@ -67,11 +67,10 @@
 
 }
 .customer > section:nth-child(3) {
-
     height: 80vh;
     position: absolute;
     /*background: lightpink;*/
-    right: 900px;
+    right: 541px;
     width: 39vw;
     top: 335px;
     bottom: 0;

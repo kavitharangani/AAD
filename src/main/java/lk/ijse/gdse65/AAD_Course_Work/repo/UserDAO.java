@@ -1,6 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.repo;
 
-import lk.ijse.gdse65.AAD_Course_Work.entity.User;
+import lk.ijse.gdse65.AAD_Course_Work.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
@@ -9,10 +9,10 @@ import java.util.Optional;
 
 @EnableJpaRepositories
 @Repository
-public interface UserDAO extends JpaRepository<User, Integer> {
+public interface UserDAO extends JpaRepository<UserEntity, Integer> {
 
-    Optional<User> findOneByEmailAndPassword(String email, String password);
+    Optional<UserEntity> findOneByEmailAndPassword(String email, String password);
 
-    User findByEmail(String email);
+    UserEntity findByEmail(String email);
 
 }

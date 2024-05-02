@@ -1,53 +1,55 @@
-$(document).ready(function (){
-    // const loadAllSuppliers = () => {
-    //     $("#supplier-tbl-body").empty();
-    //     $.ajax({
-    //         url: "http://localhost:8080/shop/api/v1/suppliers",
-    //         method: "GET",
-    //         dataType: "json",
-    //         success: function (resp) {
-    //             for (const supplier of resp) {
-    //                 let row = `<tr><td>${supplier.supplier_id}</td><td>${supplier.supplier_name}</td><td>${supplier.category}</td><td>${supplier.address_line_01}</td>
-    //                                 <td>${supplier.contact_no_1}</td><td>${supplier.contact_no_2}</td><td>${supplier.email}</td></tr>`;
-    //                 $("#supplier-tbl-body").append(row);
-    //             }
-    //             callMethod();
-    //         },
-    //         error: function (xhr, status, error) {
-    //             alert("Error: " + error);
-    //         }
-    //     });
-    // }
-    //
-    // function callMethod() {
-    //     $("#supplier-tbl-body>tr").click(function (){
-    //         let supplier_id = $(this).children().eq(0).text();
-    //         let supplier_name = $(this).children().eq(1).text();
-    //         let category = $(this).children().eq(2).text();
-    //         let address1 = $(this).children().eq(3).text();
-    //         let address2 = $(this).children().eq(4).text();
-    //         let address3 = $(this).children().eq(5).text();
-    //         let address4 = $(this).children().eq(6).text();
-    //         let address5 = $(this).children().eq(7).text();
-    //         let address6 = $(this).children().eq(8).text();
-    //         let contact1 = $(this).children().eq(9).text();
-    //         let contact2 = $(this).children().eq(10).text();
-    //         let email = $(this).children().eq(11).text();
-    //
-    //         $("#suppl_id").val(supplier_id);
-    //         $("#suppl_name").val(supplier_name);
-    //         $("#category").val(category);
-    //         $("#sad1").val(address1);
-    //         $("#sad2").val(address2);
-    //         $("#sad3").val(address3);
-    //         $("#sad4").val(address4);
-    //         $("#sad5").val(address5);
-    //         $("#sad6").val(address6);
-    //         $("#contact1").val(contact1);
-    //         $("#contact2").val(contact2);
-    //         $("#email").val(email);
-    //     });
-    // }
+$(document).ready(function () {
+    const loadAllSuppliers = () => {
+        $("#supplier-tbl-body").empty();
+        $.ajax({
+            url: "http://localhost:8080/shop/api/v1/suppliers",
+            method: "GET",
+            dataType: "json",
+            success: function (resp) {
+                for (const supplier of resp) {
+                    let row = `<tr><td>${supplier.supplier_id}</td><td>${supplier.supplier_name}</td><td>${supplier.category}</td><td>${supplier.address_line_01}</td>
+                                    <td>${supplier.address_line_02}</td><td>${supplier.address_line_03}</td><td>${supplier.address_line_04}</td>
+                                    <td>${supplier.address_line_05}</td><td>${supplier.address_line_06}</td><td>${supplier.contact_no_01}</td>
+                                    <td>${supplier.contact_no_02}</td><td>${supplier.email}</td></tr>`;
+                    $("#supplier-tbl-body").append(row);
+                }
+                callMethod();
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + error);
+            }
+        });
+    }
+
+    function callMethod() {
+        $("#supplier-tbl-body").on("click", "tr", function () {
+            let supplier_id = $(this).children().eq(0).text();
+            let supplier_name = $(this).children().eq(1).text();
+            let category = $(this).children().eq(2).text();
+            let address1 = $(this).children().eq(3).text();
+            let address2 = $(this).children().eq(4).text();
+            let address3 = $(this).children().eq(5).text();
+            let address4 = $(this).children().eq(6).text();
+            let address5 = $(this).children().eq(7).text();
+            let address6 = $(this).children().eq(8).text();
+            let contact1 = $(this).children().eq(9).text();
+            let contact2 = $(this).children().eq(10).text();
+            let email = $(this).children().eq(11).text();
+
+            $("#suppl_id").val(supplier_id);
+            $("#suppl_name").val(supplier_name);
+            $("#category").val(category);
+            $("#sad1").val(address1);
+            $("#sad2").val(address2);
+            $("#sad3").val(address3);
+            $("#sad4").val(address4);
+            $("#sad5").val(address5);
+            $("#sad6").val(address6);
+            $("#contact1").val(contact1);
+            $("#contact2").val(contact2);
+            $("#email").val(email);
+        });
+    }
 
     $("#save_supplier").click(function () {
         let formData = {

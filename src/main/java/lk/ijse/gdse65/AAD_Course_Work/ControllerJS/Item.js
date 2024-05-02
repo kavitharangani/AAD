@@ -1,53 +1,40 @@
-// $("#save_item").click(function () {
-//     let formData = {
-//         item_code: $("#item_id").val(),
-//         item_name: $("#item_name").val(),
-//         item_description: $("#item_description").val(),
-//         item_price: $("#item_price").val(),
-//         item_qty: $("#item_qty").val(),
-//     };
-//
-//     $.ajax({
-//         method: "POST",
-//         url: "http://localhost:8080/shop/api/v1/item",
-//         contentType: "application/json",
-//         data: JSON.stringify(formData),
-//         success: function (data) {
-//             reset();
-//             alert("Item saved successfully.");
-//         },
-//         error: function (xhr, status, error) {
-//             alert("Error: " + error);
-//         }
-//     });
-// });
-//
-// $("#update_item").click(function () {
-//     let formData = {
-//         item_code: $("#item_id").val(),
-//         item_name: $("#item_name").val(),
-//         item_description: $("#item_description").val(),
-//         item_price: $("#item_price").val(),
-//         item_qty: $("#item_qty").val(),
-//     };
+$(document).ready(function () {
+    const loadAllItems = () => {
+        $("#item-tbl-body").empty();
+        $.ajax({
+            url: "http://localhost:8080/shop/api/v1/items",
+            method: "GET",
+            dataType: "json",
+            success: function (resp) {
+                for (const item of resp) {
+                    let row = `<tr><td>${item.item_code}</td><td>${item.item_name}</td><td>${item.item_description}</td><td>${item.item_price}</td>
+                                    <td>${item.item_qty}</td></tr>`;
+                    $("#item-tbl-body").append(row);
+                }
+                callMethod();
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + error);
+            }
+        });
+    }
 
-//     $.ajax({
-//         method: "PATCH",
-//         url: "http://localhost:8080/shop/api/v1/item",
-//         contentType: "application/json",
-//         data: JSON.stringify(formData),
-//         success: function (data) {
-//             reset();
-//             alert("Item updated successfully.");
-//         },
-//         error: function (xhr, status, error) {
-//             alert("Error updating item: " + error);
-//         }
-//     });
-// });
+    function callMethod() {
+        $("#item-tbl-body").on("click", "tr", function () {
+            let item_id = $(this).children().eq(0).text();
+            let item_name = $(this).children().eq(1).text();
+            let item_description = $(this).children().eq(2).text();
+            let item_price = $(this).children().eq(3).text();
+            let item_qty = $(this).children().eq(4).text();
 
-$(document).ready(function (){
-    // Save customer
+            $("#item_id").val(item_id);
+            $("#item_name").val(item_name);
+            $("#item_description").val(item_description);
+            $("#item_price").val(item_price);
+            $("#item_qty").val(item_qty);
+        });
+    }
+
     $("#save_item").click(function () {
         let formData = {
             item_code: $("#item_id").val(),
@@ -72,8 +59,7 @@ $(document).ready(function (){
         });
     });
 
-    // Update customer
-    $("#update_item").click(function (){
+    $("#update_item").click(function () {
         let formData = {
             item_code: $("#item_id").val(),
             item_name: $("#item_name").val(),
@@ -97,7 +83,6 @@ $(document).ready(function (){
         });
     });
 
-    // Delete customer
     $("#delete_item").click(function () {
         let item_id = $("#item_id").val();
 
@@ -126,6 +111,9 @@ $(document).ready(function (){
         $("#item_description").val("");
         $("#item_price").val("");
         $("#item_qty").val("");
+        loadAllItems(); // Call loadAllItems after resetting form
     }
 
+    // Load items on page load
+    loadAllItems();
 });
