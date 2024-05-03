@@ -1,7 +1,7 @@
 package lk.ijse.gdse65.AAD_Course_Work.dto;
 
-import lk.ijse.gdse65.AAD_Course_Work.entity.Gender;
-import lk.ijse.gdse65.AAD_Course_Work.entity.Level;
+import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Gender;
+import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Level;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +19,9 @@ public class CustomerDTO {
     private Level level;
     private int total_points;
     private Date dob;
-    private String address;
+    private String address1;
+    private String address2;
+    private String address3;
+    private String address4;
+    private String address5;
 }

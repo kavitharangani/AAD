@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    const loadAllSuppliers = () => {
+$(document).ready(function (){
+    function loadAllSuppliers() {
         $("#supplier-tbl-body").empty();
         $.ajax({
             url: "http://localhost:8080/shop/api/v1/suppliers",
@@ -7,10 +7,10 @@ $(document).ready(function () {
             dataType: "json",
             success: function (resp) {
                 for (const supplier of resp) {
-                    let row = `<tr><td>${supplier.supplier_id}</td><td>${supplier.supplier_name}</td><td>${supplier.category}</td><td>${supplier.address_line_01}</td>
-                                    <td>${supplier.address_line_02}</td><td>${supplier.address_line_03}</td><td>${supplier.address_line_04}</td>
-                                    <td>${supplier.address_line_05}</td><td>${supplier.address_line_06}</td><td>${supplier.contact_no_01}</td>
-                                    <td>${supplier.contact_no_02}</td><td>${supplier.email}</td></tr>`;
+                    let row = `<tr><td>${supplier.supplier_id}</td><td>${supplier.supplier_name}</td><td>${supplier.category}</td>
+                                    <td>${supplier.address_line_01}</td><td>${supplier.address_line_02}</td><td>${supplier.address_line_03}</td>
+                                    <td>${supplier.address_line_04}</td><td>${supplier.address_line_05}</td><td>${supplier.address_line_06}</td>
+                                    <td>${supplier.contact_no_01}</td><td>${supplier.contact_no_02}</td><td>${supplier.email}</td></tr>`;
                     $("#supplier-tbl-body").append(row);
                 }
                 callMethod();
@@ -22,7 +22,7 @@ $(document).ready(function () {
     }
 
     function callMethod() {
-        $("#supplier-tbl-body").on("click", "tr", function () {
+        $("#supplier-tbl-body>tr").click(function (){
             let supplier_id = $(this).children().eq(0).text();
             let supplier_name = $(this).children().eq(1).text();
             let category = $(this).children().eq(2).text();

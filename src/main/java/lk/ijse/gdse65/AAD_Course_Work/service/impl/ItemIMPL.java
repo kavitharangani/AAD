@@ -51,6 +51,9 @@ public class ItemIMPL implements ItemService {
             item.setItem_description(itemDTO.getItem_description());
             item.setItem_price(itemDTO.getItem_price());
             item.setItem_qty(itemDTO.getItem_qty());
+
+            itemDAO.save(item);
+
             return true;
         } else {
             throw new NotFoundException(id + " not found :(");

@@ -20,18 +20,20 @@ public class Item {
     public String healthCheack(){
         return "Item Ok";
     }
+
     @PostMapping
     public ItemDTO saveItem(@RequestBody ItemDTO item) {
         return itemService.saveItem(item);
     }
+
     @GetMapping
     public List<ItemDTO> getAllItems() {
         return itemService.getAllItems();
     }
 
     @PatchMapping(value = "/{item_code}")
-    public boolean update(@PathVariable("item_code") String itemCode, @RequestBody ItemDTO itemDTO) throws NotFoundException {
-        return itemService.updateItem(itemCode, itemDTO);
+    public boolean updateItem( @RequestBody ItemDTO itemDTO) throws NotFoundException {
+        return itemService.updateItem(itemDTO.getItem_code(),itemDTO);
     }
 
     @DeleteMapping(value = "/{item_code}")

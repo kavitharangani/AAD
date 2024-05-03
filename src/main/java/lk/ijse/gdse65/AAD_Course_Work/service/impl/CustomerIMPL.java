@@ -47,16 +47,21 @@ public class CustomerIMPL implements CustomerService {
 
     @Override
     public boolean updateCustomer(String id, CustomerDTO customerDTO) throws NotFoundException {
-        Optional<CustomerEntity> tmpCustomer = customerDAO.findById(id);
-        if (tmpCustomer.isPresent()) {
-            CustomerEntity customer = tmpCustomer.get();
-            customer.setCustomer_name(customer.getCustomer_name());
-            customer.setGender(customer.getGender());
-            customer.setJoin_date(customer.getJoin_date());
-            customer.setLevel(customer.getLevel());
-            customer.setTotal_points(customer.getTotal_points());
-            customer.setDob(customer.getDob());
-            customer.setAddress(customer.getAddress());
+        Optional<CustomerEntity> tmpCustomerOptional = customerDAO.findById(id);
+        if (tmpCustomerOptional.isPresent()) {
+            CustomerEntity customer = tmpCustomerOptional.get();
+            customer.setCustomer_name(customerDTO.getCustomer_name());
+            customer.setGender(customerDTO.getGender());
+            customer.setJoin_date(customerDTO.getJoin_date());
+            customer.setLevel(customerDTO.getLevel());
+            customer.setTotal_points(customerDTO.getTotal_points());
+            customer.setDob(customerDTO.getDob());
+            customer.setAddress1(customerDTO.getAddress1());
+            customer.setAddress2(customerDTO.getAddress2());
+            customer.setAddress3(customerDTO.getAddress3());
+            customer.setAddress4(customerDTO.getAddress4());
+            customer.setAddress5(customerDTO.getAddress5());
+            customerDAO.save(customer);
             return true;
         } else {
             throw new NotFoundException(id + " not found :(");

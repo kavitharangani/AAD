@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    const loadAllItems = () => {
+    function loadAllItems() {
         $("#item-tbl-body").empty();
         $.ajax({
-            url: "http://localhost:8080/shop/api/v1/items",
+            url: "http://localhost:8080/shop/api/v1/item",
             method: "GET",
             dataType: "json",
             success: function (resp) {
@@ -65,12 +65,12 @@ $(document).ready(function () {
             item_name: $("#item_name").val(),
             item_description: $("#item_description").val(),
             item_price: $("#item_price").val(),
-            item_qty: $("#item_qty").val(),
+            item_qty: $("#item_qty").val()
         };
 
         $.ajax({
             method: "PATCH",
-            url: "http://localhost:8080/shop/api/v1/item",
+            url: "http://localhost:8080/shop/api/v1/item/" + formData.item_code,
             contentType: "application/json",
             data: JSON.stringify(formData),
             success: function (data) {
@@ -82,6 +82,7 @@ $(document).ready(function () {
             }
         });
     });
+
 
     $("#delete_item").click(function () {
         let item_id = $("#item_id").val();
@@ -99,12 +100,11 @@ $(document).ready(function () {
         });
     });
 
-    // Reset form
     $("#item_reset").click(function () {
         reset();
     });
 
-    // Reset function
+
     function reset() {
         $("#item_id").val("");
         $("#item_name").val("");
@@ -114,6 +114,5 @@ $(document).ready(function () {
         loadAllItems(); // Call loadAllItems after resetting form
     }
 
-    // Load items on page load
     loadAllItems();
 });

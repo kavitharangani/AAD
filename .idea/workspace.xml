@@ -4,31 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe61f44b-63bc-4780-984b-60734cbe250c" name="Changes" comment="create item form">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="fe61f44b-63bc-4780-984b-60734cbe250c" name="Changes" comment="create CSS form">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Customer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Supplier.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/ControllerJS/Supplier.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/controller/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/controller/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/customer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/customer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/dashbord.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/dashbord.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/employee.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/supplier.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/design/css/supplier.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/controller/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/controller/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/CustomerDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/EmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/EmployeeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/SupplierDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/dto/SupplierDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Enum/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/CustomerEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/EmployeeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/EmployeeEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/img/customer1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/img/customer2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Enum/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Enum/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/Enum/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/SupplierEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/entity/SupplierEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/repo/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/repo/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/repo/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/repo/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/CustomerIMPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/CustomerIMPL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/EmployeeIMPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/EmployeeIMPL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/UserIMPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/UserIMPL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/ItemIMPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/service/impl/ItemIMPL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/util/Mapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/util/Mapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/util/UtilMatters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse65/AAD_Course_Work/util/UtilMatters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,6 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/2nd Semester/AAD/Spring Boot/AAD_Course_Work/src/main/java/lk/ijse/gdse65/AAD_Course_Work/table",
     "list.type.of.created.stylesheet": "CSS",
@@ -181,7 +181,7 @@
       <workItem from="1714548385340" duration="582000" />
       <workItem from="1714558792880" duration="31638000" />
       <workItem from="1714657986281" duration="2767000" />
-      <workItem from="1714662404443" duration="8748000" />
+      <workItem from="1714662404443" duration="25275000" />
     </task>
     <task id="LOCAL-00001" summary="create item form">
       <created>1714504360090</created>
@@ -211,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714662548343</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="create CSS form">
+      <created>1714675985826</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714675985826</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +232,11 @@
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="aeeef592-fb8d-4c74-b4d4-29b41c7a761a">
           <value>
             <State>
@@ -255,7 +267,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create item form" />
-    <option name="LAST_COMMIT_MESSAGE" value="create item form" />
+    <MESSAGE value="create CSS form" />
+    <option name="LAST_COMMIT_MESSAGE" value="create CSS form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

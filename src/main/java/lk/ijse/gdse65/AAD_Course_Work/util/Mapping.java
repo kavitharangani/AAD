@@ -37,30 +37,16 @@ public class Mapping {
     }
 
     //****************** Employee ******************
-//    public EmployeeDTO toEmployeeDTO (EmployeeEntity employee){
-//        return mapper.map(employee,EmployeeDTO.class);
-//    }
-//    public EmployeeEntity toEmployeeEntity (EmployeeDTO employeeDTO){
-//        return mapper.map(employeeDTO,EmployeeEntity.class);
-//    }
-//    public List<EmployeeDTO> toEmployeeDTOList (List<EmployeeEntity> employees){
-//        return mapper.map(employees,List.class);
-//    }
-    public EmployeeDTO convertToEmployeeDTO(Optional<EmployeeEntity> employeeEntity){
-        return mapper.map(employeeEntity, EmployeeDTO.class);
+    public EmployeeDTO toEmployeeDTO (EmployeeEntity employee){
+        return mapper.map(employee,EmployeeDTO.class);
+    }
+    public EmployeeEntity toEmployeeEntity (EmployeeDTO employeeDTO){
+        return mapper.map(employeeDTO,EmployeeEntity.class);
+    }
+    public List<EmployeeDTO> toEmployeeDTOList (List<EmployeeEntity> employees){
+        return mapper.map(employees,List.class);
     }
 
-    public EmployeeEntity convertToEmployeeEntity(Optional<EmployeeDTO> employeeDTO){
-        return mapper.map(employeeDTO, EmployeeEntity.class);
-    }
-
-    public List<EmployeeDTO> getEmployeeDTOList(List<EmployeeEntity> employeeEntities){
-        return mapper.map(employeeEntities,List.class);
-    }
-
-    public List<EmployeeEntity> getEmployeeEntityList(List<EmployeeDTO> employeeDTOS){
-        return mapper.map(employeeDTOS,List.class);
-    }
     //****************** Inventory ******************
     public InventoryDTO toInventoryDTO(InventoryEntity inventory){
         return mapper.map(inventory,InventoryDTO.class);

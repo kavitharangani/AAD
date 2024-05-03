@@ -1,6 +1,7 @@
 package lk.ijse.gdse65.AAD_Course_Work.entity;
 
 import jakarta.persistence.*;
+import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    const loadAllCustomer = () => {
+    function loadAllCustomer() {
         $("#customer-tbl-body").empty();
         $.ajax({
             url: "http://localhost:8080/shop/api/v1/customer",
@@ -8,7 +8,7 @@ $(document).ready(function (){
             success: function (resp) {
                 for (const customer of resp) {
                     let row = `<tr><td>${customer.customer_code}</td><td>${customer.customer_name}</td><td>${customer.gender}</td><td>${customer.join_date}</td>
-                                    <td>${customer.level}</td><td>${customer.total_points}</td><td>${customer.dob}</td><td>${customer.address}</td></tr>`;
+                                    <td>${customer.level}</td><td>${customer.total_points}</td><td>${customer.dob}</td><td>${customer.address1}</td><td>${customer.address2}</td><td>${customer.address3}</td><td>${customer.address4}</td><td>${customer.address5}</td></tr>`;
                     $("#customer-tbl-body").append(row);
                 }
                 callMethod();
@@ -28,7 +28,11 @@ $(document).ready(function (){
             let totalPoints = $(this).children().eq(5).text();
             let level = $(this).children().eq(4).text();
             let dob = $(this).children().eq(6).text();
-            let address = $(this).children().eq(7).text();
+            let address1 = $(this).children().eq(7).text();
+            let address2 = $(this).children().eq(8).text();
+            let address3 = $(this).children().eq(9).text();
+            let address4 = $(this).children().eq(10).text();
+            let address5 = $(this).children().eq(11).text();
 
             $("#cust_id").val(customer_id);
             $("#name").val(name);
@@ -37,7 +41,12 @@ $(document).ready(function (){
             $("#totalpoint").val(totalPoints);
             $("#inputState").val(level);
             $("#dob").val(dob);
-            $("#address").val(address);
+            $("#address1").val(address1);
+            $("#address2").val(address2);
+            $("#address3").val(address3);
+            $("#address4").val(address4);
+            $("#address5").val(address5);
+
         });
     }
 
@@ -51,7 +60,11 @@ $(document).ready(function (){
             level: $("#inputState").val(),
             total_points: $("#totalpoint").val(),
             dob: $("#dob").val(),
-            address: $("#address").val()
+            address1: $("#address1").val(),
+            address2:$("#address2").val(),
+            address3:$("#address3").val(),
+            address4:$("#address4").val(),
+            address5:$("#address5").val()
         };
 
         $.ajax({
@@ -79,7 +92,11 @@ $(document).ready(function (){
             level: $("#inputState").val(),
             total_points: $("#totalpoint").val(),
             dob: $("#dob").val(),
-            address: $("#address").val()
+            address1: $("#address1").val(),
+            address2:$("#address2").val(),
+            address3:$("#address3").val(),
+            address4:$("#address4").val(),
+            address5:$("#address5").val()
         };
 
         $.ajax({
@@ -127,7 +144,11 @@ $(document).ready(function (){
         $("#totalpoint").val("");
         $("#inputState").val("");
         $("#dob").val("");
-        $("#address").val("");
+        $("#address1").val("");
+        $("#address2").val("");
+        $("#address3").val("");
+        $("#address4").val("");
+        $("#address5").val("");
         loadAllCustomer();
     }
 
