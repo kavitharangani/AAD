@@ -70,10 +70,11 @@ public class Inventory {
         return inventoryService.saveInventory(inventoryDTO);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PatchMapping( consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void updateInventory(
-            @Valid @RequestPart("item_desc") String item_desc,
+    @ResponseStatus(HttpStatus.OK)
+    @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public InventoryDTO updateInventory(
+            @Valid @RequestPart("item_code") String item_code,
+            @RequestPart("item_desc") String item_desc,
             @RequestPart("item_qty") String item_qty,
             @RequestPart("item_pic") String item_pic,
             @RequestPart("category") String category,
@@ -83,8 +84,7 @@ public class Inventory {
             @RequestPart("expected_profit") String expected_profit,
             @RequestPart("profit_margin") String profit_margin,
             @RequestPart("status") String status,
-            @RequestPart("item_code") String item_code,
-            Errors errors) throws NotFoundException {
+            Errors errors) {
 
         if (errors.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
@@ -106,14 +106,9 @@ public class Inventory {
         inventoryDTO.setProfit_margin(Double.parseDouble(profit_margin));
         inventoryDTO.setStatus(status);
 
-        inventoryService.updateInventory(item_code, inventoryDTO);
+        return inventoryService.saveInventory(inventoryDTO);
     }
 
-//    @DeleteMapping(value = "/{item_code}")
-//    public void deleteInventory(String item_code)  {
-//        inventoryService.deleteInventory(item_code);
-//    }
-//
     @GetMapping
     public List<InventoryDTO> getAllInventory() {
         return inventoryService.getAllInventory();

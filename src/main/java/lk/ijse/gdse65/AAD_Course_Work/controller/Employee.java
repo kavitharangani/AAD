@@ -90,60 +90,61 @@ public class Employee {
     public boolean deleteEmployee(@PathVariable String employeeId) throws NotFoundException {
         return employeeService.deleteEmployee(employeeId);
     }
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.CREATED)
     @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void updateEmployee(@Valid
-                               @RequestPart ("employeeName") String employeeName,
-                               @RequestPart ("employeeProfilePic") String employeeProfilePic,
-                               @RequestPart ("gender") String gender,
-                               @RequestPart ("status") String status,
-                               @RequestPart ("designation") String designation,
-                               @RequestPart ("role") String role,
-                               @RequestPart ("dob") String dob,
-                               @RequestPart ("joinDate") String joinDate,
-                               @RequestPart ("attachedBranch") String attachedBranch,
-                               @RequestPart ("employeeAddress1") String employeeAddress1,
-                               @RequestPart ("employeeAddress2") String employeeAddress2,
-                               @RequestPart ("employeeAddress3") String employeeAddress3,
-                               @RequestPart ("employeeAddress4") String employeeAddress4,
-                               @RequestPart ("employeeAddress5") String employeeAddress5,
-                               @RequestPart ("contactNo") String contactNo,
-                               @RequestPart ("email") String email,
-                               @RequestPart ("informInCaseOfEmergency") String informInCaseOfEmergency,
-                               @RequestPart ("emergencyContactNo") String emergencyContactNo,
-                               @RequestParam("employeeId") String employeeId,
-                               Errors errors) throws NotFoundException {
-        if (errors.hasFieldErrors()){
+    public EmployeeDTO updateEmployee(
+            @Valid @RequestPart("employeeId") String employeeId,
+            @RequestPart("employeeName") String employeeName,
+            @RequestPart("employeeProfilePic") String employeeProfilePic,
+            @RequestPart("gender") String gender,
+            @RequestPart("status") String status,
+            @RequestPart("designation") String designation,
+            @RequestPart("role") String role,
+            @RequestPart("dob") String dob,
+            @RequestPart("joinDate") String joinDate,
+            @RequestPart("attachedBranch") String attachedBranch,
+            @RequestPart("employeeAddress1") String employeeAddress1,
+            @RequestPart("employeeAddress2") String employeeAddress2,
+            @RequestPart("employeeAddress3") String employeeAddress3,
+            @RequestPart("employeeAddress4") String employeeAddress4,
+            @RequestPart("employeeAddress5") String employeeAddress5,
+            @RequestPart("contactNo") String contactNo,
+            @RequestPart("email") String email,
+            @RequestPart("informInCaseOfEmergency") String informInCaseOfEmergency,
+            @RequestPart("emergencyContactNo") String emergencyContactNo,
+            Errors errors) {
+        if (errors.hasFieldErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
                     errors.getFieldErrors().get(0).getDefaultMessage());
         }
 
-        //Build Base64 image
+        // Build Base64 image
         String base64ProPic = UtilMatters.convertBase64(employeeProfilePic);
 
+        EmployeeDTO updatedEmployee = new EmployeeDTO();
+        updatedEmployee.setEmployeeId(employeeId); // Assuming you want to update this field
+        updatedEmployee.setEmployeeName(employeeName);
+        updatedEmployee.setEmployeeProfilePic(base64ProPic);
+        updatedEmployee.setGender(Gender.valueOf(gender));
+        updatedEmployee.setStatus(status);
+        updatedEmployee.setDesignation(designation);
+        updatedEmployee.setRole(Role.valueOf(role));
+        updatedEmployee.setDob(Date.valueOf(dob));
+        updatedEmployee.setJoinDate(Date.valueOf(joinDate));
+        updatedEmployee.setAttachedBranch(attachedBranch);
+        updatedEmployee.setEmployeeAddress1(employeeAddress1);
+        updatedEmployee.setEmployeeAddress2(employeeAddress2);
+        updatedEmployee.setEmployeeAddress3(employeeAddress3);
+        updatedEmployee.setEmployeeAddress4(employeeAddress4);
+        updatedEmployee.setEmployeeAddress5(employeeAddress5);
+        updatedEmployee.setContactNo(contactNo);
+        updatedEmployee.setEmail(email);
+        updatedEmployee.setInformInCaseOfEmergency(informInCaseOfEmergency);
+        updatedEmployee.setEmergencyContactNo(emergencyContactNo);
 
-        EmployeeDTO updateEmployee = new EmployeeDTO();
-        updateEmployee.setEmployeeName(employeeName);
-        updateEmployee.setEmployeeProfilePic(base64ProPic);
-        updateEmployee.setGender(Gender.valueOf(gender));
-        updateEmployee.setStatus(status);
-        updateEmployee.setDesignation(designation);
-        updateEmployee.setRole(Role.valueOf(role));
-        updateEmployee.setDob(Date.valueOf(dob));
-        updateEmployee.setJoinDate(Date.valueOf(joinDate));
-        updateEmployee.setAttachedBranch(attachedBranch);
-        updateEmployee.setEmployeeAddress1(employeeAddress1);
-        updateEmployee.setEmployeeAddress2(employeeAddress2);
-        updateEmployee.setEmployeeAddress3(employeeAddress3);
-        updateEmployee.setEmployeeAddress4(employeeAddress4);
-        updateEmployee.setEmployeeAddress5(employeeAddress5);
-        updateEmployee.setContactNo(contactNo);
-        updateEmployee.setEmail(email);
-        updateEmployee.setInformInCaseOfEmergency(informInCaseOfEmergency);
-        updateEmployee.setEmergencyContactNo(emergencyContactNo);
-
-        employeeService.updateEmployee(employeeId, updateEmployee);
+        return employeeService.saveEmployee(updatedEmployee);
     }
+
 
     @GetMapping
     public List<EmployeeDTO> getAllEmployees() {
