@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lk.ijse.gdse65</groupId>
-	<artifactId>AAD_Course_Work</artifactId>
+	<artifactId>AAD_Course_Work_Back_End</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AAD_Course_Work</name>
 	<description>Demo project for Spring Boot</description>

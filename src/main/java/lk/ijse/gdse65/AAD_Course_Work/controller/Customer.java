@@ -2,6 +2,7 @@ package lk.ijse.gdse65.AAD_Course_Work.controller;
 
 import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
 import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
+import lk.ijse.gdse65.AAD_Course_Work.dto.EmployeeDTO;
 import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin("http://localhost:63342")
 public class Customer {
 
     private final CustomerService customerService;
@@ -42,4 +43,5 @@ public class Customer {
     public boolean update(@RequestBody CustomerDTO customerDTO) throws  NotFoundException {
         return customerService.updateCustomer(customerDTO.getCustomer_code(),customerDTO);
     }
+
 }

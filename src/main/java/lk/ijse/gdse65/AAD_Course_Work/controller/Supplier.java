@@ -1,6 +1,7 @@
 package lk.ijse.gdse65.AAD_Course_Work.controller;
 
 import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
+import lk.ijse.gdse65.AAD_Course_Work.dto.EmployeeDTO;
 import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.SupplierService;
 import lombok.RequiredArgsConstructor;
@@ -8,12 +9,13 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/suppliers")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin("http://localhost:63342")
 public class Supplier{
     private final SupplierService supplierService;
 
@@ -35,5 +37,9 @@ public class Supplier{
     @DeleteMapping("/{supplier_id}")
     public boolean delete(@PathVariable("supplier_id") String id) throws NotFoundException {
         return supplierService.deleteSupplier(id);
+    }
+    @GetMapping
+    public List<SupplierDTO> getAllSuppliers() {
+        return supplierService.getAllSuppliers();
     }
 }

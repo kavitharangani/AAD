@@ -9,8 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/user")
+@CrossOrigin("http://localhost:63342")
+
 public class User {
     @Autowired
     private UserService userService;
