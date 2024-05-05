@@ -17,7 +17,7 @@ public class ItemEntity implements SuperEntity {
     private String item_code;
     private String item_name;
     private String item_description;
-    private Double item_price;
-    private int item_qty;
+//    private Double item_price;
+//    private int item_qty;
 
 }

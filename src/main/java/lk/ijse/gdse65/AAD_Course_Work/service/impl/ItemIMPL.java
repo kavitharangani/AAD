@@ -49,8 +49,8 @@ public class ItemIMPL implements ItemService {
             ItemEntity item = optionalItem.get();
             item.setItem_name(itemDTO.getItem_name());
             item.setItem_description(itemDTO.getItem_description());
-            item.setItem_price(itemDTO.getItem_price());
-            item.setItem_qty(itemDTO.getItem_qty());
+//            item.setItem_price(itemDTO.getItem_price());
+//            item.setItem_qty(itemDTO.getItem_qty());
 
             itemDAO.save(item);
 
