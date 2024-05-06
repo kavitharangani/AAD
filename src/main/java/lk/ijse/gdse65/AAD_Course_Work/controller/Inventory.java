@@ -106,8 +106,9 @@ public class Inventory {
         inventoryDTO.setProfit_margin(Double.parseDouble(profit_margin));
         inventoryDTO.setStatus(status);
 
-        return inventoryService.saveInventory(inventoryDTO);
+        return inventoryService.updateInventory(item_code,inventoryDTO);
     }
+
 
     @GetMapping
     public List<InventoryDTO> getAllInventory() {

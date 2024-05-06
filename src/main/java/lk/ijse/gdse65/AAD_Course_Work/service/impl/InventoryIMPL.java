@@ -1,7 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.gdse65.AAD_Course_Work.controller.Inventory;
 import lk.ijse.gdse65.AAD_Course_Work.dto.InventoryDTO;
 import lk.ijse.gdse65.AAD_Course_Work.entity.InventoryEntity;
 import lk.ijse.gdse65.AAD_Course_Work.repo.InventoryDAO;
@@ -23,7 +22,7 @@ public class InventoryIMPL implements InventoryService {
 
     @Override
     public InventoryDTO saveInventory(InventoryDTO inventory) {
-        inventory.setItem_code(UUID.randomUUID().toString());
+//        inventory.setItem_code(UUID.randomUUID().toString());
         return mapping.toInventoryDTO(inventoryDAO.save(mapping.toIventoryEntity(inventory)));
     }
 
@@ -33,7 +32,7 @@ public class InventoryIMPL implements InventoryService {
     }
 
     @Override
-    public void updateInventory(String id, InventoryDTO inventoryDTO) {
+    public InventoryDTO updateInventory(String id, InventoryDTO inventoryDTO) {
         Optional<InventoryEntity> inventory = inventoryDAO.findById(id);
             inventory.get().setItem_desc(inventoryDTO.getItem_desc());
             inventory.get().setItem_qty(inventoryDTO.getItem_qty());
@@ -46,6 +45,7 @@ public class InventoryIMPL implements InventoryService {
             inventory.get().setProfit_margin(inventoryDTO.getProfit_margin());
             inventory.get().setStatus(inventoryDTO.getStatus());
 
+        return inventoryDTO;
     }
 
     @Override

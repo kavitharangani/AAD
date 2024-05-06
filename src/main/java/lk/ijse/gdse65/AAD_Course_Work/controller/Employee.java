@@ -92,7 +92,7 @@ public class Employee {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public EmployeeDTO updateEmployee(
+    public boolean updateEmployee(
             @Valid @RequestPart("employeeId") String employeeId,
             @RequestPart("employeeName") String employeeName,
             @RequestPart("employeeProfilePic") String employeeProfilePic,
@@ -112,7 +112,7 @@ public class Employee {
             @RequestPart("email") String email,
             @RequestPart("informInCaseOfEmergency") String informInCaseOfEmergency,
             @RequestPart("emergencyContactNo") String emergencyContactNo,
-            Errors errors) {
+            Errors errors) throws NotFoundException {
         if (errors.hasFieldErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
                     errors.getFieldErrors().get(0).getDefaultMessage());
@@ -142,7 +142,7 @@ public class Employee {
         updatedEmployee.setInformInCaseOfEmergency(informInCaseOfEmergency);
         updatedEmployee.setEmergencyContactNo(emergencyContactNo);
 
-        return employeeService.saveEmployee(updatedEmployee);
+        return employeeService.updateEmployee(employeeId,updatedEmployee);
     }
 
 

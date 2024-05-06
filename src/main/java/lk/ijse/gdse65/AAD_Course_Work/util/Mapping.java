@@ -1,5 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.util;
 
+import lk.ijse.gdse65.AAD_Course_Work.controller.Refund;
 import lk.ijse.gdse65.AAD_Course_Work.dto.*;
 import lk.ijse.gdse65.AAD_Course_Work.entity.*;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class Mapping {
         return mapper.map(customers, List.class);
     }
 
+
     //****************** Supplier ******************
     public SupplierDTO toSupplierDTO(SupplierEntity supplier) {
         return  mapper.map(supplier, SupplierDTO.class);
@@ -35,6 +37,7 @@ public class Mapping {
     public List<SupplierDTO> toSupplierDTOList(List<SupplierEntity> suppliers) {
         return mapper.map(suppliers, List.class);
     }
+
 
     //****************** Employee ******************
     public EmployeeDTO toEmployeeDTO (EmployeeEntity employee){
@@ -47,6 +50,7 @@ public class Mapping {
         return mapper.map(employees,List.class);
     }
 
+
     //****************** Inventory ******************
     public InventoryDTO toInventoryDTO(InventoryEntity inventory){
         return mapper.map(inventory,InventoryDTO.class);
@@ -58,6 +62,7 @@ public class Mapping {
         return mapper.map(inventories,List.class);
     }
 
+
     //****************** Item ******************
     public ItemDTO toItemDTO(ItemEntity item){
         return mapper.map(item,ItemDTO.class);
@@ -67,5 +72,17 @@ public class Mapping {
     }
     public List<ItemDTO>toItemDTOList(List<ItemEntity>items){
         return mapper.map(items,List.class);
+    }
+
+
+    //****************** Refund ******************
+    public RefundDTO toRefundDTO (RefundEntity refund){
+        return mapper.map(refund,RefundDTO.class);
+    }
+    public RefundEntity torRefundEntity (RefundDTO refundDTO){
+        return mapper.map(refundDTO,RefundEntity.class);
+    }
+    public List<RefundDTO> toRefundDTOList (List<RefundEntity> refunds){
+        return mapper.map(refunds,List.class);
     }
 }
