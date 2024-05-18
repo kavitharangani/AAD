@@ -3,7 +3,6 @@ package lk.ijse.gdse65.AAD_Course_Work.service.impl;
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
 import lk.ijse.gdse65.AAD_Course_Work.dto.RefundDTO;
-import lk.ijse.gdse65.AAD_Course_Work.entity.CustomerEntity;
 import lk.ijse.gdse65.AAD_Course_Work.entity.RefundEntity;
 import lk.ijse.gdse65.AAD_Course_Work.repo.RefundDAO;
 import lk.ijse.gdse65.AAD_Course_Work.service.RefundService;

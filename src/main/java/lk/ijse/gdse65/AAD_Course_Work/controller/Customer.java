@@ -1,9 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.controller;
 
-import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
 import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
-import lk.ijse.gdse65.AAD_Course_Work.dto.EmployeeDTO;
-import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -15,6 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor
 @CrossOrigin("http://localhost:63342")
+//@PreAuthorize("hasAuthority('ROLE ADMIN')")
 public class Customer {
 
     private final CustomerService customerService;
@@ -35,13 +33,12 @@ public class Customer {
     }
 
     @DeleteMapping(value = "/{customer_code}")
-    public boolean deleteCustomer(@PathVariable ("customer_code") String id) throws NotFoundException {
-        return customerService.deleteCustomer(id);
+    public void deleteCustomer(@PathVariable ("customer_code") String id){
+        customerService.deleteCustomer(id);
     }
 
     @PatchMapping
-    public boolean update(@RequestBody CustomerDTO customerDTO) throws  NotFoundException {
-        return customerService.updateCustomer(customerDTO.getCustomer_code(),customerDTO);
+    public void update(@RequestBody CustomerDTO customerDTO) throws ChangeSetPersister.NotFoundException {
+        customerService.updateCustomer(customerDTO.getCustomer_code(),customerDTO);
     }
-
 }

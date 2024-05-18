@@ -1,16 +1,12 @@
 package lk.ijse.gdse65.AAD_Course_Work.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
-import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
 import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
-import lk.ijse.gdse65.AAD_Course_Work.entity.CustomerEntity;
 import lk.ijse.gdse65.AAD_Course_Work.entity.SupplierEntity;
 import lk.ijse.gdse65.AAD_Course_Work.repo.SupplierDAO;
 import lk.ijse.gdse65.AAD_Course_Work.service.SupplierService;
 import lk.ijse.gdse65.AAD_Course_Work.util.Mapping;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,20 +38,13 @@ public class SupplierIMPL implements SupplierService {
 
 
     @Override
-    public boolean deleteSupplier(String id) throws NotFoundException {
-        Optional<SupplierEntity> supplier = supplierDAO.findById(id);
-        if (supplier.isPresent()) {
+    public void deleteSupplier(String id) {
         supplierDAO.deleteById(id);
-            return true;
-        }else{
-            throw new NotFoundException(id+" not found (:");
-        }
     }
 
     @Override
-    public boolean updateSupplier(String id, SupplierDTO supplierDTO) throws NotFoundException {
+    public void updateSupplier(String id, SupplierDTO supplierDTO) {
         Optional<SupplierEntity> supplier = supplierDAO.findById(id);
-        if (supplier.isPresent()) {
             supplier.get().setSupplier_name(supplierDTO.getSupplier_name());
             supplier.get().setCategory(supplierDTO.getCategory());
             supplier.get().setAddress_line_01(supplierDTO.getAddress_line_01());
@@ -67,9 +56,5 @@ public class SupplierIMPL implements SupplierService {
             supplier.get().setContact_no_1(supplierDTO.getContact_no_1());
             supplier.get().setContact_no_2(supplierDTO.getContact_no_2());
             supplier.get().setEmail(supplierDTO.getEmail());
-            return true;
-        } else {
-            throw new NotFoundException(id + " not found :(");
-        }
     }
 }

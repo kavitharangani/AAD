@@ -1,8 +1,8 @@
 package lk.ijse.gdse65.AAD_Course_Work.entity;
 
 import jakarta.persistence.*;
-import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Gender;
-import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Level;
+import lk.ijse.gdse65.AAD_Course_Work.entity.num.Gender;
+import lk.ijse.gdse65.AAD_Course_Work.entity.num.Level;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +25,5 @@ public class CustomerEntity implements SuperEntity{
     private Level level;
     private int total_points;
     private Date dob;
-    private String address1;
-    private String address2;
-    private String address3;
-    private String address4;
-    private String address5;
-
+    private String address;
 }

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -32,7 +31,7 @@ public class InventoryIMPL implements InventoryService {
     }
 
     @Override
-    public InventoryDTO updateInventory(String id, InventoryDTO inventoryDTO) {
+    public void updateInventory(String id, InventoryDTO inventoryDTO) {
         Optional<InventoryEntity> inventory = inventoryDAO.findById(id);
             inventory.get().setItem_desc(inventoryDTO.getItem_desc());
             inventory.get().setItem_qty(inventoryDTO.getItem_qty());
@@ -45,7 +44,6 @@ public class InventoryIMPL implements InventoryService {
             inventory.get().setProfit_margin(inventoryDTO.getProfit_margin());
             inventory.get().setStatus(inventoryDTO.getStatus());
 
-        return inventoryDTO;
     }
 
     @Override

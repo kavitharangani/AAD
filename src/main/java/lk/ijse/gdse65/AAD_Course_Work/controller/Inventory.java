@@ -1,22 +1,17 @@
 package lk.ijse.gdse65.AAD_Course_Work.controller;
 
 import jakarta.validation.Valid;
-import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
-import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
 import lk.ijse.gdse65.AAD_Course_Work.dto.InventoryDTO;
-import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.InventoryService;
 import lk.ijse.gdse65.AAD_Course_Work.util.UtilMatters;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
@@ -106,9 +101,8 @@ public class Inventory {
         inventoryDTO.setProfit_margin(Double.parseDouble(profit_margin));
         inventoryDTO.setStatus(status);
 
-        return inventoryService.updateInventory(item_code,inventoryDTO);
+        return inventoryService.saveInventory(inventoryDTO);
     }
-
 
     @GetMapping
     public List<InventoryDTO> getAllInventory() {

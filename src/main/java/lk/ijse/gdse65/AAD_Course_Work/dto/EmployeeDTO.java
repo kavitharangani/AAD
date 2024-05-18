@@ -1,12 +1,13 @@
 package lk.ijse.gdse65.AAD_Course_Work.dto;
 
-import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Gender;
-import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Role;
+import lk.ijse.gdse65.AAD_Course_Work.entity.num.Gender;
+import lk.ijse.gdse65.AAD_Course_Work.entity.num.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+
 
 @AllArgsConstructor
 @NoArgsConstructor

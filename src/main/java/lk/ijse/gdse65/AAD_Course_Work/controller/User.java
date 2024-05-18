@@ -1,36 +1,35 @@
 package lk.ijse.gdse65.AAD_Course_Work.controller;
 
-import lk.ijse.gdse65.AAD_Course_Work.dto.UserDTO;
-import lk.ijse.gdse65.AAD_Course_Work.dto.LoginDTO;
-import lk.ijse.gdse65.AAD_Course_Work.response.LoginResponse;
-import lk.ijse.gdse65.AAD_Course_Work.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lk.ijse.gdse65.AAD_Course_Work.reqAndresp.response.JwtAuthResponse;
+import lk.ijse.gdse65.AAD_Course_Work.reqAndresp.secure.SignIn;
+import lk.ijse.gdse65.AAD_Course_Work.reqAndresp.secure.SignUp;
+import lk.ijse.gdse65.AAD_Course_Work.service.AuthenticationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("api/v1/auth")
 @CrossOrigin("http://localhost:63342")
-
+@RequiredArgsConstructor
 public class User {
-    @Autowired
-    private UserService userService;
+    private final AuthenticationService authenticationService;
 
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "Users OK";
+    //signup
+   @PostMapping("/signup")
+   public ResponseEntity<JwtAuthResponse> signUp(@RequestBody SignUp signUpReq) {
+    return ResponseEntity.ok(authenticationService.signUp(signUpReq));
+}
+
+    //signIn
+    @PostMapping("/signin")
+    public ResponseEntity<JwtAuthResponse> signIn(@RequestBody SignIn signInReq) {
+        return ResponseEntity.ok(authenticationService.signIn(signInReq));
     }
 
-    @PostMapping(path = "/save")
-    public String saveUser(@RequestBody UserDTO userDTO)
-    {
-        String id = userService.addUser(userDTO);
-        return id;
-    }
-    @PostMapping(path = "/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO)
-    {
-        LoginResponse loginResponse = userService.loginUser(loginDTO);
-        return ResponseEntity.ok(loginResponse);
+    //refresh
+    @PostMapping("/refresh")
+    public ResponseEntity<JwtAuthResponse> refreshToken(@RequestParam ("refreshToken") String refreshToken) {
+        return ResponseEntity.ok(authenticationService.refreshToken(refreshToken));
     }
 }

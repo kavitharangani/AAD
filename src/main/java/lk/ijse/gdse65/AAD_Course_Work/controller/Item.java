@@ -1,7 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.controller;
 
 import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
-import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
 import lk.ijse.gdse65.AAD_Course_Work.dto.ItemDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.ItemService;
 import lombok.RequiredArgsConstructor;

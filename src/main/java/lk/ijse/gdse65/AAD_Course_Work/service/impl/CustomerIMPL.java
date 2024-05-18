@@ -1,8 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
-import lk.ijse.gdse65.AAD_Course_Work.controller.Customer;
 import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
 import lk.ijse.gdse65.AAD_Course_Work.entity.CustomerEntity;
 import lk.ijse.gdse65.AAD_Course_Work.repo.CustomerDAO;
@@ -35,37 +33,20 @@ public class CustomerIMPL implements CustomerService {
     }
 
     @Override
-    public boolean deleteCustomer(String id) throws NotFoundException {
-        Optional<CustomerEntity> customer = customerDAO.findById(id);
-        if (customer.isPresent()) {
-            customerDAO.deleteById(id);
-            return true;
-        }else{
-            throw new NotFoundException(id+" not found (:");
-        }
+    public void deleteCustomer(String id) {
+        customerDAO.deleteById(id);
     }
 
     @Override
-    public boolean updateCustomer(String id, CustomerDTO customerDTO) throws NotFoundException {
-        Optional<CustomerEntity> tmpCustomerOptional = customerDAO.findById(id);
-        if (tmpCustomerOptional.isPresent()) {
-            CustomerEntity customer = tmpCustomerOptional.get();
-            customer.setCustomer_name(customerDTO.getCustomer_name());
-            customer.setGender(customerDTO.getGender());
-            customer.setJoin_date(customerDTO.getJoin_date());
-            customer.setLevel(customerDTO.getLevel());
-            customer.setTotal_points(customerDTO.getTotal_points());
-            customer.setDob(customerDTO.getDob());
-            customer.setAddress1(customerDTO.getAddress1());
-            customer.setAddress2(customerDTO.getAddress2());
-            customer.setAddress3(customerDTO.getAddress3());
-            customer.setAddress4(customerDTO.getAddress4());
-            customer.setAddress5(customerDTO.getAddress5());
-            customerDAO.save(customer);
-            return true;
-        } else {
-            throw new NotFoundException(id + " not found :(");
-        }
+    public void updateCustomer(String id, CustomerDTO customer) {
+        Optional<CustomerEntity> tmpCustomer = customerDAO.findById(id);
+        tmpCustomer.get().setCustomer_name(customer.getCustomer_name());
+        tmpCustomer.get().setGender(customer.getGender());
+        tmpCustomer.get().setJoin_date (customer.getJoin_date());
+        tmpCustomer.get().setLevel (customer.getLevel());
+        tmpCustomer.get().setTotal_points (customer.getTotal_points());
+        tmpCustomer.get().setDob (customer.getDob());
+        tmpCustomer.get().setAddress (customer.getAddress());
     }
 
     @Override

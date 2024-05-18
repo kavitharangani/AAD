@@ -10,9 +10,6 @@ import java.util.Optional;
 @EnableJpaRepositories
 @Repository
 public interface UserDAO extends JpaRepository<UserEntity, Integer> {
-
-    Optional<UserEntity> findOneByEmailAndPassword(String email, String password);
-
-    UserEntity findByEmail(String email);
+    Optional<UserEntity> findByEmail(String email);
 
 }

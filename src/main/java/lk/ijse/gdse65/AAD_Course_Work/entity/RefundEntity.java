@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
@@ -24,5 +25,5 @@ public class RefundEntity implements SuperEntity{
     private EmployeeEntity employee;
 
     @OneToOne
-    private SaleItemEntity saleItem;
+    private SaleEntity saleItem;
 }

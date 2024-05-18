@@ -1,6 +1,5 @@
 package lk.ijse.gdse65.AAD_Course_Work.util;
 
-import lk.ijse.gdse65.AAD_Course_Work.controller.Refund;
 import lk.ijse.gdse65.AAD_Course_Work.dto.*;
 import lk.ijse.gdse65.AAD_Course_Work.entity.*;
 import lombok.RequiredArgsConstructor;
@@ -8,14 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
 public class Mapping {
     private final ModelMapper mapper;
 
-    //****************** Customer *****************
+    //////Customer
     public CustomerDTO toCustomerDTO(CustomerEntity customer) {
         return  mapper.map(customer, CustomerDTO.class);
     }
@@ -26,31 +24,29 @@ public class Mapping {
         return mapper.map(customers, List.class);
     }
 
-
-    //****************** Supplier ******************
+    //////Supplier
     public SupplierDTO toSupplierDTO(SupplierEntity supplier) {
         return  mapper.map(supplier, SupplierDTO.class);
     }
+
     public SupplierEntity toSupplierEntity(SupplierDTO supplierDTO) {
         return  mapper.map(supplierDTO, SupplierEntity.class);
     }
+
     public List<SupplierDTO> toSupplierDTOList(List<SupplierEntity> suppliers) {
         return mapper.map(suppliers, List.class);
     }
 
-
-    //****************** Employee ******************
-    public EmployeeDTO toEmployeeDTO (EmployeeEntity employee){
-        return mapper.map(employee,EmployeeDTO.class);
+    ////////Employee
+    public EmployeeDTO toEmployeeDTO(EmployeeEntity employee) {
+        return  mapper.map(employee, EmployeeDTO.class);
     }
-    public EmployeeEntity toEmployeeEntity (EmployeeDTO employeeDTO){
-        return mapper.map(employeeDTO,EmployeeEntity.class);
+    public EmployeeEntity toEmployee(EmployeeDTO employeeDTO) {
+        return  mapper.map(employeeDTO, EmployeeEntity.class);
     }
-    public List<EmployeeDTO> toEmployeeDTOList (List<EmployeeEntity> employees){
-        return mapper.map(employees,List.class);
+    public List<EmployeeDTO> toEmployeeDTOList(List<EmployeeEntity> employee) {
+        return mapper.map(employee, List.class);
     }
-
-
     //****************** Inventory ******************
     public InventoryDTO toInventoryDTO(InventoryEntity inventory){
         return mapper.map(inventory,InventoryDTO.class);
@@ -61,7 +57,6 @@ public class Mapping {
     public List<InventoryDTO> toInventoryDTOList(List<InventoryEntity> inventories){
         return mapper.map(inventories,List.class);
     }
-
 
     //****************** Item ******************
     public ItemDTO toItemDTO(ItemEntity item){
@@ -74,6 +69,16 @@ public class Mapping {
         return mapper.map(items,List.class);
     }
 
+    //****************** sale ******************
+    public SaleDTO toSaleDTO(SaleEntity sale){
+        return mapper.map(sale,SaleDTO.class);
+    }
+    public SaleEntity toSaleEntity(SaleDTO saleDTO){
+        return mapper.map(saleDTO,SaleEntity.class);
+    }
+    public List<SaleDTO>toSaleDTOList(List<SaleEntity>sale){
+        return mapper.map(sale,List.class);
+    }
 
     //****************** Refund ******************
     public RefundDTO toRefundDTO (RefundEntity refund){
@@ -84,5 +89,17 @@ public class Mapping {
     }
     public List<RefundDTO> toRefundDTOList (List<RefundEntity> refunds){
         return mapper.map(refunds,List.class);
+    }
+
+    //user
+    public UserDTO toUserDTO(UserEntity user) {
+        return  mapper.map(user, UserDTO.class);
+    }
+    public UserEntity toUserEntity(UserDTO userDTO){
+        return  mapper.map(userDTO, UserEntity.class);
+    }
+    public List<UserDTO> toUserDTOList(List<UserEntity> users) {
+        return mapper.map(users, List.class);
+
     }
 }

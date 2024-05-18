@@ -1,6 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.dto;
 
-import lk.ijse.gdse65.AAD_Course_Work.entity.Enum.Category;
+import lk.ijse.gdse65.AAD_Course_Work.entity.num.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
