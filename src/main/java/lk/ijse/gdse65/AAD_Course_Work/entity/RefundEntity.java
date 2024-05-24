@@ -1,9 +1,6 @@
 package lk.ijse.gdse65.AAD_Course_Work.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,8 +19,10 @@ public class RefundEntity implements SuperEntity{
     private Date refundDate;
 
     @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
     private EmployeeEntity employee;
 
     @OneToOne
-    private SaleEntity saleItem;
+    @JoinColumn(name = "sale_order_no", referencedColumnName = "order_no")
+    private SaleEntity sale;
 }

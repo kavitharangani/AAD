@@ -5,21 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class SaleDTO {
     private String order_no;
-    private String item_code;
-    private String customer_name;
-    private String item_desc;
-    private int size;
-    private double unit_price;
-    private int item_qty;
-    private double total_price;
+    private String employeeId;
+    private String customer_code;
     private Date purchase_date;
     private String payment_method;
     private double added_points;
-    private String cashier_name;
+    private double netTotal;
+    private EmployeeDTO cashier;
+    private CustomerDTO customer;
+    private List<SaleInventoryDTO> saleInventoryDetails;
 }

@@ -3,6 +3,7 @@ package lk.ijse.gdse65.AAD_Course_Work.controller;
 import lk.ijse.gdse65.AAD_Course_Work.dto.SaleDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.SaleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,12 +21,13 @@ public class Sale {
     }
 
     @PostMapping
-    public SaleDTO saveSale(@RequestBody SaleDTO sale) {
-        return saleService.saveSale(sale);
+    public ResponseEntity<Void> createSale(@RequestBody SaleDTO saleDTO) {
+        saleService.createSale(saleDTO);
+        return ResponseEntity.ok().build();
     }
-    @GetMapping
-    public List<SaleDTO> getAllSale() {
-        return saleService.getAllSales();
-    }
+//    @GetMapping
+//    public List<SaleDTO> getAllSale() {
+//        return saleService.getAllSales();
+//    }
 }
 

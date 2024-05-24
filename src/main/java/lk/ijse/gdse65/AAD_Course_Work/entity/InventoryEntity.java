@@ -1,12 +1,13 @@
 package lk.ijse.gdse65.AAD_Course_Work.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +28,16 @@ public class InventoryEntity implements SuperEntity {
     private double expected_profit;
     private double profit_margin;
     private String status;
+
+    @ManyToOne
+    private ItemEntity item;
+
+//    @OneToMany(mappedBy = "refundId.inventory", cascade = CascadeType.ALL)
+//    private List<RefundEntity> resupplyItems;
+
+    @OneToMany(mappedBy = "inventory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<SaleInventoryDetails> saleDetails = new HashSet<>();
+
+
+
 }

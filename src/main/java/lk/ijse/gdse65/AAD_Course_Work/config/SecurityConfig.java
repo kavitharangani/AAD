@@ -73,12 +73,12 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
 
-        }
+    }
 
 
     @Bean
     public InMemoryUserDetailsManager userDetailsManager(){
-       UserDetails buildUser= User.withDefaultPasswordEncoder()
+        UserDetails buildUser= User.withDefaultPasswordEncoder()
                 .username("kavi")
                 .password("1234")
                 .roles("USER").build();
