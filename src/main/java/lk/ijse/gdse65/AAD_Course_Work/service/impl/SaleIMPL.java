@@ -26,7 +26,6 @@ public class SaleIMPL implements SaleService {
     private final SaleInventoryDAO saleInventoryDAO;
     private final Mapping mapping;
 
-
     @Override
     public void createSale(SaleDTO saleDTO) {
         Optional<CustomerEntity> customer = customerDAO.findById(saleDTO.getCustomer_code());
