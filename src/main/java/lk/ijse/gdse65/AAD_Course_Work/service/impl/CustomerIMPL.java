@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -20,6 +21,13 @@ public class CustomerIMPL implements CustomerService {
 
     private final CustomerDAO customerDAO;
     private final Mapping mapping;
+
+    @Override
+    public List<CustomerDTO> getAllCustomers() {
+        return customerDAO.findAll().stream()
+                .map(mapping::toCustomerDTO)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customer) {
@@ -42,15 +50,11 @@ public class CustomerIMPL implements CustomerService {
         Optional<CustomerEntity> tmpCustomer = customerDAO.findById(id);
         tmpCustomer.get().setCustomer_name(customer.getCustomer_name());
         tmpCustomer.get().setGender(customer.getGender());
-        tmpCustomer.get().setJoin_date (customer.getJoin_date());
-        tmpCustomer.get().setLevel (customer.getLevel());
-        tmpCustomer.get().setTotal_points (customer.getTotal_points());
-        tmpCustomer.get().setDob (customer.getDob());
-        tmpCustomer.get().setAddress (customer.getAddress());
+        tmpCustomer.get().setJoin_date(customer.getJoin_date());
+        tmpCustomer.get().setLevel(customer.getLevel());
+        tmpCustomer.get().setTotal_points(customer.getTotal_points());
+        tmpCustomer.get().setDob(customer.getDob());
+        tmpCustomer.get().setAddress(customer.getAddress());
     }
 
-    @Override
-    public List<CustomerDTO> getAllCustomers() {
-        return mapping.toCustomerDTOList(customerDAO.findAll());
-    }
 }
