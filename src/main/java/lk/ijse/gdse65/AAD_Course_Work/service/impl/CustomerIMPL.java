@@ -30,6 +30,11 @@ public class CustomerIMPL implements CustomerService {
     }
 
     @Override
+    public long count() {
+        return customerDAO.count();
+    }
+
+    @Override
     public CustomerDTO saveCustomer(CustomerDTO customer) {
         customer.setCustomer_code(UUID.randomUUID().toString());
         return mapping.toCustomerDTO(customerDAO.save(mapping.toCustomer(customer)));

@@ -4,6 +4,7 @@ import lk.ijse.gdse65.AAD_Course_Work.dto.CustomerDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,14 @@ import java.util.List;
 public class Customer {
 
     private final CustomerService customerService;
+
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> countCustomers() {
+        long totalCustomers = customerService.count();
+        return ResponseEntity.ok(totalCustomers);
+    }
+
 
     @GetMapping("/health")
     public String healthTest(){
