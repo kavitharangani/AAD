@@ -7,6 +7,7 @@ import lk.ijse.gdse65.AAD_Course_Work.util.UtilMatters;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -20,6 +21,12 @@ import java.util.List;
 
 public class Inventory {
     private final InventoryService inventoryService;
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> countInventory() {
+        long totalInventory = inventoryService.count();
+        return ResponseEntity.ok(totalInventory);
+    }
 
     @GetMapping("/health")
     public String healthTest(){

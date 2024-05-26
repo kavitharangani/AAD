@@ -50,4 +50,9 @@ public class InventoryIMPL implements InventoryService {
     public List<InventoryDTO> getAllInventory() {
         return mapping.toInventoryDTOList(inventoryDAO.findAll());
     }
+
+    @Override
+    public long count() {
+        return inventoryDAO.count();
+    }
 }

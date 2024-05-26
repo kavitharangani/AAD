@@ -9,4 +9,5 @@ public interface InventoryService {
     void deleteInventory(String id);
     void updateInventory(String id,InventoryDTO inventoryDTO);
     List<InventoryDTO> getAllInventory();
+    long count();
 }
