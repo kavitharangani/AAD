@@ -57,4 +57,9 @@ public class SupplierIMPL implements SupplierService {
             supplier.get().setContact_no_2(supplierDTO.getContact_no_2());
             supplier.get().setEmail(supplierDTO.getEmail());
     }
+
+    @Override
+    public long count() {
+        return supplierDAO.count();
+    }
 }
