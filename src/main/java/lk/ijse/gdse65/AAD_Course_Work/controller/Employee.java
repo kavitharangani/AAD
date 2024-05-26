@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,6 +24,12 @@ import java.util.List;
 @CrossOrigin("http://localhost:63342")
 public class Employee {
     private final EmployeeService employeeService;
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> countEmployees() {
+        long totalEmployees = employeeService.count();
+        return ResponseEntity.ok(totalEmployees);
+    }
 
     @GetMapping("/health")
     public String checkHealth() {

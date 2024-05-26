@@ -61,4 +61,9 @@ public class EmployeeIMPL implements EmployeeService {
         return mapping.toEmployeeDTOList(employeeDAO.findAll());
 
     }
+
+    @Override
+    public long count() {
+        return employeeDAO.count();
+    }
 }

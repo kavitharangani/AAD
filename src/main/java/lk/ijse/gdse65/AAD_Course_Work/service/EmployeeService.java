@@ -9,4 +9,5 @@ public interface EmployeeService {
     void deleteEmployee(String id);
     void updateEmployee(String id,EmployeeDTO employee);
     List<EmployeeDTO> getAllEmployees();
+    long count();
 }
