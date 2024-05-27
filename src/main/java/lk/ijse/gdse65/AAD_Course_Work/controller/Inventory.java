@@ -2,6 +2,7 @@ package lk.ijse.gdse65.AAD_Course_Work.controller;
 
 import jakarta.validation.Valid;
 import lk.ijse.gdse65.AAD_Course_Work.dto.InventoryDTO;
+import lk.ijse.gdse65.AAD_Course_Work.entity.InventoryEntity;
 import lk.ijse.gdse65.AAD_Course_Work.service.InventoryService;
 import lk.ijse.gdse65.AAD_Course_Work.util.UtilMatters;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
@@ -22,6 +24,15 @@ import java.util.List;
 public class Inventory {
     private final InventoryService inventoryService;
 
+    @GetMapping("/most-sold-item-qty")
+    public Optional<Integer> getMostSoldItemQty() {
+        return inventoryService.getMostSoldItemQty();
+    }
+
+    @GetMapping("/most-sold-item-name")
+    public Optional<String> getMostSoldItemName() {
+        return inventoryService.getMostSoldItemName();
+    }
     @GetMapping("/count")
     public ResponseEntity<Long> countInventory() {
         long totalInventory = inventoryService.count();

@@ -32,9 +32,6 @@ public class InventoryEntity implements SuperEntity {
     @ManyToOne
     private ItemEntity item;
 
-//    @OneToMany(mappedBy = "refundId.inventory", cascade = CascadeType.ALL)
-//    private List<RefundEntity> resupplyItems;
-
     @OneToMany(mappedBy = "inventory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<SaleInventoryDetails> saleDetails = new HashSet<>();
 

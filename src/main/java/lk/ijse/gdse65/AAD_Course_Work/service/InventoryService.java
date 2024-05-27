@@ -1,8 +1,10 @@
 package lk.ijse.gdse65.AAD_Course_Work.service;
 
 import lk.ijse.gdse65.AAD_Course_Work.dto.InventoryDTO;
+import lk.ijse.gdse65.AAD_Course_Work.entity.InventoryEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface InventoryService {
     InventoryDTO saveInventory(InventoryDTO inventory);
@@ -14,4 +16,8 @@ public interface InventoryService {
     double calculateTotalProfit();
 
     Double getTotalSales();
+
+    Optional<String> getMostSoldItemName();
+
+    Optional<Integer> getMostSoldItemQty();
 }

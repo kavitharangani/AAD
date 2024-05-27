@@ -69,4 +69,18 @@ public class InventoryIMPL implements InventoryService {
         return inventoryDAO.findTotalSales();
     }
 
+    @Override
+    public Optional<String> getMostSoldItemName() {
+        return inventoryDAO.findTopSoldItem().stream()
+                .findFirst()
+                .map(InventoryEntity::getItem_desc);
+    }
+
+    @Override
+    public Optional<Integer> getMostSoldItemQty() {
+        return inventoryDAO.findTopSoldItem().stream()
+                .findFirst()
+                .map(InventoryEntity::getItem_qty);
+    }
+
 }
