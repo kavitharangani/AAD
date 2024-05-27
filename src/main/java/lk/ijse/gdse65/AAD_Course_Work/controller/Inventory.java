@@ -28,6 +28,14 @@ public class Inventory {
         return ResponseEntity.ok(totalInventory);
     }
 
+    @GetMapping("/total-sales")
+    public Double getTotalSales() {
+        return inventoryService.getTotalSales();
+    }
+    @GetMapping("/totalProfit")
+    public double getTotalProfit() {
+        return inventoryService.calculateTotalProfit();
+    }
     @GetMapping("/health")
     public String healthTest(){
         return "Inventory Ok";

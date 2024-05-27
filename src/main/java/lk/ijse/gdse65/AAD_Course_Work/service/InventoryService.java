@@ -10,4 +10,8 @@ public interface InventoryService {
     void updateInventory(String id,InventoryDTO inventoryDTO);
     List<InventoryDTO> getAllInventory();
     long count();
+
+    double calculateTotalProfit();
+
+    Double getTotalSales();
 }

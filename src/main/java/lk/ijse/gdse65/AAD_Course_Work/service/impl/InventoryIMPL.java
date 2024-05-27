@@ -48,6 +48,7 @@ public class InventoryIMPL implements InventoryService {
 
     @Override
     public List<InventoryDTO> getAllInventory() {
+
         return mapping.toInventoryDTOList(inventoryDAO.findAll());
     }
 
@@ -55,4 +56,17 @@ public class InventoryIMPL implements InventoryService {
     public long count() {
         return inventoryDAO.count();
     }
+
+    @Override
+    public double calculateTotalProfit() {
+        return inventoryDAO.findAll().stream()
+                .mapToDouble(InventoryEntity::getExpected_profit)
+                .sum();
+    }
+
+    @Override
+    public Double getTotalSales() {
+        return inventoryDAO.findTotalSales();
+    }
+
 }
