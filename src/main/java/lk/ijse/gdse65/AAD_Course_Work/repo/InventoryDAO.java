@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface InventoryDAO extends JpaRepository<InventoryEntity ,String> {
@@ -15,5 +16,6 @@ public interface InventoryDAO extends JpaRepository<InventoryEntity ,String> {
     @Query("SELECT i FROM InventoryEntity i ORDER BY i.item_qty DESC")
     List<InventoryEntity> findTopSoldItem();
 
+    Optional<InventoryEntity> findById(String item);
 }
 

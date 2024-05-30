@@ -14,6 +14,7 @@ import java.util.Date;
 @Table(name = "refund")
 public class RefundEntity implements SuperEntity{
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String refundId;
     private String description;
     private Date refundDate;
@@ -23,6 +24,7 @@ public class RefundEntity implements SuperEntity{
     private EmployeeEntity employee;
 
     @OneToOne
-    @JoinColumn(name = "sale_order_no", referencedColumnName = "order_no")
+    @JoinColumn(name = "orderNo", referencedColumnName = "order_no")
     private SaleEntity sale;
+
 }

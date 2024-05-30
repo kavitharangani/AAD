@@ -27,7 +27,11 @@ public class CustomerEntity implements SuperEntity{
     private Level level;
     private int total_points;
     private Date dob;
-    private String address;
+    private String address1;
+    private String address2;
+    private String address3;
+    private String address4;
+    private String address5;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<SaleEntity> sales = new ArrayList<>();

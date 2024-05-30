@@ -59,7 +59,11 @@ public class CustomerIMPL implements CustomerService {
         tmpCustomer.get().setLevel(customer.getLevel());
         tmpCustomer.get().setTotal_points(customer.getTotal_points());
         tmpCustomer.get().setDob(customer.getDob());
-        tmpCustomer.get().setAddress(customer.getAddress());
+        tmpCustomer.get().setAddress1(customer.getAddress1());
+        tmpCustomer.get().setAddress2(customer.getAddress2());
+        tmpCustomer.get().setAddress3(customer.getAddress3());
+        tmpCustomer.get().setAddress4(customer.getAddress4());
+        tmpCustomer.get().setAddress5(customer.getAddress5());
     }
 
 }

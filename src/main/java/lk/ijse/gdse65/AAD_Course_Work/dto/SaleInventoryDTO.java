@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 public class SaleInventoryDTO {
     private String orderDetailId;
     private String item_code;
-    private String itemDesc;
+    private String item_desc;
     private int size;
-    private double unitPrice;
-    private int itemQty;
-    private double totalPrice;
+    private double unit_price;
+    private int item_qty;
+    private double total_price;
     private InventoryDTO inventory;
 }

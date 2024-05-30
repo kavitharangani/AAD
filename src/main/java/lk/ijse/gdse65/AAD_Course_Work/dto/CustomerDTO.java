@@ -19,5 +19,9 @@ public class CustomerDTO {
     private Level level;
     private int total_points;
     private Date dob;
-    private String address;
+    private String address1;
+    private String address2;
+    private String address3;
+    private String address4;
+    private String address5;
 }
