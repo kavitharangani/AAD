@@ -5,6 +5,7 @@ import lk.ijse.gdse65.AAD_Course_Work.dto.SupplierDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.SupplierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class Supplier{
         supplierService.updateSupplier(supplierDTO.getSupplier_id(),supplierDTO);
     }
 
+    @PreAuthorize("hasAuthority('ROLE ADMIN')")
     @DeleteMapping("/{supplier_id}")
     public void delete(@PathVariable("supplier_id") String id) throws NotFoundException {
         supplierService.deleteSupplier(id);

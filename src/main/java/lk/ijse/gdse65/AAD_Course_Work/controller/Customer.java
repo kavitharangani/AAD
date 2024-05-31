@@ -5,6 +5,7 @@ import lk.ijse.gdse65.AAD_Course_Work.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,6 @@ import java.util.List;
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor
 @CrossOrigin("http://localhost:63342")
-//@PreAuthorize("hasAuthority('ROLE ADMIN')")
 public class Customer {
 
     private final CustomerService customerService;

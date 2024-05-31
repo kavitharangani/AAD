@@ -4,6 +4,7 @@ import lk.ijse.gdse65.AAD_Course_Work.Exception.NotFoundException;
 import lk.ijse.gdse65.AAD_Course_Work.dto.ItemDTO;
 import lk.ijse.gdse65.AAD_Course_Work.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,11 +31,13 @@ public class Item {
         return itemService.getAllItems();
     }
 
+    @PreAuthorize("hasAuthority('ROLE ADMIN')")
     @PatchMapping(value = "/{item_code}")
     public boolean updateItem( @RequestBody ItemDTO itemDTO) throws NotFoundException {
         return itemService.updateItem(itemDTO.getItem_code(),itemDTO);
     }
 
+    @PreAuthorize("hasAuthority('ROLE ADMIN')")
     @DeleteMapping(value = "/{item_code}")
     public boolean deleteItem(@PathVariable ("item_code") String id) throws NotFoundException {
         return itemService.deleteItem(id);
